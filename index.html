@@ -29,6 +29,8 @@
 .spq .kit{max-width:400px;margin:0 auto 1rem}
 .spq .note{font-size:11px;color:rgba(240,236,228,0.4);margin-top:0.75rem}
 .spq .preface{font-size:14px;line-height:1.9;color:rgba(240,236,228,0.7);margin-bottom:2rem;padding:1.25rem;border:0.5px solid rgba(255,255,255,0.1);border-radius:10px;background:rgba(255,255,255,0.03)}
+.spq .back-btn{background:transparent;border:none;color:rgba(240,236,228,0.4);font-size:12px;cursor:pointer;padding:0;margin-bottom:1rem;display:inline-block;letter-spacing:0.05em}
+.spq .back-btn:hover{color:rgba(240,236,228,0.7)}
 .spq .meditation-link{display:block;margin-top:1.5rem;padding:1rem 1.25rem;border:0.5px solid rgba(240,236,228,0.3);border-radius:8px;color:#f0ece4;text-decoration:none;font-size:14px;font-weight:500;text-align:center;transition:all 0.2s}
 .spq .meditation-link:hover{background:rgba(255,255,255,0.06);border-color:#f0ece4}
 </style>
@@ -49,6 +51,7 @@
 
 <div id="spq-quiz" class="sc">
   <div class="pb"><div class="pf" id="spq-prog" style="width:0%"></div></div>
+  <button class="back-btn" id="spq-back" onclick="spqBack()" style="display:none;">← 上一題</button>
   <div class="qn" id="spq-qn">問題 1 / 17</div>
   <div class="qt" id="spq-qt"></div>
   <div class="opts" id="spq-opts"></div>
@@ -87,6 +90,7 @@
 <script>
 window.spqCq=0;
 window.spqSc={};
+window.spqLastAns={};
 window.spqQs=[
   {q:"感受一下，你感覺到的那種「累」，通常是哪一種質感？",opts:[
     {t:"一直希望被注意，而不敢停下來。",p:1,s:1},
@@ -227,8 +231,23 @@ window.spqRs={
 };
 function spqGo(id){['spq-land','spq-quiz','spq-email','spq-result'].forEach(function(sid){var el=document.getElementById(sid);el.classList.remove('on');el.classList.add('sc');});var el=document.getElementById(id);el.classList.remove('sc');el.classList.add('on');}
 function spqStart(){spqGo('spq-quiz');spqRq();}
+function spqBack(){
+  if(window.spqCq>0){
+    var prevQ=window.spqQs[window.spqCq-1];
+    var prevAns=window.spqLastAns[window.spqCq-1];
+    if(prevAns!==null && prevAns!==undefined){
+      var prevOpt=prevQ.opts[prevAns];
+      if(prevOpt.s>0){window.spqSc[prevOpt.p]=(window.spqSc[prevOpt.p]||0)-prevOpt.s;if(window.spqSc[prevOpt.p]<=0){delete window.spqSc[prevOpt.p];}}
+      window.spqLastAns[window.spqCq-1]=null;
+    }
+    window.spqCq--;
+    spqRq();
+  }
+}
 function spqRq(){
   var total=window.spqQs.length;
+  var backBtn=document.getElementById('spq-back');
+  if(backBtn){backBtn.style.display=window.spqCq>0?'inline-block':'none';}
   var q=window.spqQs[window.spqCq];
   document.getElementById('spq-prog').style.width=(window.spqCq/total*100)+'%';
   document.getElementById('spq-qn').textContent='問題 '+(window.spqCq+1)+' / '+total;
@@ -243,6 +262,7 @@ function spqRq(){
       document.querySelectorAll('.ob').forEach(function(x){x.classList.remove('sel');});
       b.classList.add('sel');
       setTimeout(function(){
+        window.spqLastAns[window.spqCq]=q.opts.indexOf(o);
         if(o.s>0){window.spqSc[o.p]=(window.spqSc[o.p]||0)+o.s;}
         window.spqCq++;
         if(window.spqCq>=total){spqResult();}
@@ -274,5 +294,5 @@ function spqResult(){
   document.getElementById('spq-meditation').href=r.med;
   spqGo('spq-result');
 }
-function spqReset(){window.spqCq=0;window.spqSc={};spqGo('spq-land');}
+function spqReset(){window.spqCq=0;window.spqSc={};window.spqLastAns={};spqGo('spq-land');}
 </script>

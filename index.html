@@ -1,43 +1,45 @@
 <style>
-.spq{background:#111;color:#f0ece4;font-family:sans-serif;padding:1.5rem 1.25rem 4rem;max-width:640px;margin:0 auto}
+html,body{width:100%;margin:0;padding:0;background:#111;}
+
+.spq{background:#111;color:#f0ece4;font-family:sans-serif;padding:1.5rem 1.25rem 4rem;max-width:640px;margin:0 auto;box-sizing:border-box;width:100%}
 .spq .sc{display:none}
 .spq .on{display:block}
-.spq h1{font-size:20px;font-weight:500;line-height:1.5;margin-bottom:1rem}
-.spq p{font-size:15px;line-height:1.9;color:rgba(240,236,228,0.75);margin-bottom:1.5rem}
+.spq h1{font-size:22px;font-weight:500;line-height:1.5;margin-bottom:1rem}
+.spq p{font-size:16px;line-height:1.9;color:rgba(240,236,228,0.95);margin-bottom:1.5rem}
 .spq .pb{height:2px;background:rgba(255,255,255,0.1);margin-bottom:1.5rem}
 .spq .pf{height:100%;background:#f0ece4;transition:width 0.3s}
-.spq .qn{font-size:12px;color:rgba(240,236,228,0.5);margin-bottom:0.5rem}
-.spq .qt{font-size:18px;font-weight:500;line-height:1.7;margin-bottom:1.5rem;color:#f0ece4}
+.spq .qn{font-size:15px;color:rgba(240,236,228,0.95);margin-bottom:0.75rem}
+.spq .qt{font-size:20px;font-weight:500;line-height:1.7;margin-bottom:1.5rem;color:#f0ece4}
 .spq .opts{display:flex;flex-direction:column;gap:10px}
-.spq .ob{text-align:left;padding:16px 18px;border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;background:rgba(255,255,255,0.03);font-size:15px;line-height:1.8;color:rgba(240,236,228,0.75);cursor:pointer;width:100%}
+.spq .ob{text-align:left;padding:18px 20px;border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;background:rgba(255,255,255,0.03);font-size:17px;line-height:1.85;color:rgba(240,236,228,0.95);cursor:pointer;width:100%}
 .spq .ob:hover{border-color:rgba(255,255,255,0.35);color:#f0ece4}
 .spq .ob.sel{border-color:#f0ece4;color:#f0ece4;background:rgba(255,255,255,0.07)}
-.spq .btn{display:inline-block;padding:12px 28px;background:#f0ece4;color:#111;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;margin-top:0.5rem}
+.spq .btn{display:block;width:100%;padding:16px 28px;background:#f0ece4;color:#111;border:none;border-radius:8px;font-size:18px;font-weight:500;cursor:pointer;margin-top:1rem;text-align:center}
 .spq .sbtn{display:inline-block;padding:12px 28px;background:#f0ece4;color:#111;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;margin-top:1rem}
-.spq .rtag{font-size:11px;color:rgba(240,236,228,0.5);letter-spacing:0.1em;margin-bottom:0.5rem}
+.spq .rtag{font-size:11px;color:rgba(240,236,228,0.85);letter-spacing:0.1em;margin-bottom:0.5rem}
 .spq .rname{font-size:28px;font-weight:500;margin-bottom:0.25rem;color:#f0ece4}
-.spq .rsub{font-size:15px;color:rgba(240,236,228,0.75);margin-bottom:1.5rem}
+.spq .rsub{font-size:15px;color:rgba(240,236,228,0.95);margin-bottom:1.5rem}
 .spq .rbox{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.1);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
-.spq .rlabel{font-size:11px;color:rgba(240,236,228,0.55);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem}
-.spq .rtext{font-size:15px;line-height:2;color:rgba(240,236,228,0.85)}
+.spq .rlabel{font-size:11px;color:rgba(240,236,228,0.85);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem}
+.spq .rtext{font-size:16px;line-height:2;color:rgba(240,236,228,0.85)}
 .spq .rtitle{font-size:15px;font-weight:500;color:#f0ece4;margin-bottom:0.75rem}
 .spq .steps{display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem}
 .spq .step{display:flex;gap:12px}
-.spq .snum{width:24px;height:24px;border-radius:50%;border:0.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;color:rgba(240,236,228,0.5)}
-.spq .stxt{font-size:15px;line-height:1.9;color:rgba(240,236,228,0.8);padding-top:2px}
+.spq .snum{width:24px;height:24px;border-radius:50%;border:0.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;color:rgba(240,236,228,0.85)}
+.spq .stxt{font-size:16px;line-height:1.9;color:rgba(240,236,228,0.8);padding-top:2px}
 .spq .div{height:0.5px;background:rgba(255,255,255,0.1);margin:1.5rem 0}
 .spq .kit{max-width:400px;margin:0 auto 1rem}
-.spq .note{font-size:11px;color:rgba(240,236,228,0.4);margin-top:0.75rem}
-.spq .preface{font-size:15px;line-height:2;color:rgba(240,236,228,0.7);margin-bottom:2rem;padding:1.25rem;border:0.5px solid rgba(255,255,255,0.1);border-radius:10px;background:rgba(255,255,255,0.03)}
-.spq .back-btn{background:transparent;border:none;color:rgba(240,236,228,0.4);font-size:12px;cursor:pointer;padding:0;margin-bottom:1rem;display:inline-block;letter-spacing:0.05em}
-.spq .back-btn:hover{color:rgba(240,236,228,0.7)}
+.spq .note{font-size:11px;color:rgba(240,236,228,0.8);margin-top:0.75rem}
+.spq .preface{font-size:16px;line-height:2;color:rgba(240,236,228,0.9);margin-bottom:2rem;padding:1.25rem;border:0.5px solid rgba(255,255,255,0.1);border-radius:10px;background:rgba(255,255,255,0.03)}
+.spq .back-btn{background:transparent;border:none;color:rgba(240,236,228,0.95);font-size:16px;cursor:pointer;padding:0;margin-bottom:1rem;display:inline-block;letter-spacing:0.05em}
+.spq .back-btn:hover{color:rgba(240,236,228,0.9)}
 .spq .meditation-link{display:block;margin-top:1.5rem;padding:1rem 1.25rem;border:0.5px solid rgba(240,236,228,0.3);border-radius:8px;color:#f0ece4;text-decoration:none;font-size:14px;font-weight:500;text-align:center;transition:all 0.2s}
 .spq .meditation-link:hover{background:rgba(255,255,255,0.06);border-color:#f0ece4}
 </style>
 
 <div class="spq" id="spq">
 <div id="spq-land" class="sc on">
-  <p style="font-size:11px;color:rgba(240,236,228,0.45);letter-spacing:0.1em;margin-bottom:1rem;">靈魂能量掃描</p>
+  <p style="font-size:11px;color:rgba(240,236,228,0.8);letter-spacing:0.1em;margin-bottom:1rem;">靈魂能量掃描</p>
   <h1>靈魂行星能量檢測<br>哪顆星扣押了你的生命力？</h1>
   <div class="div"></div>
   <div class="preface">
@@ -58,7 +60,7 @@
 </div>
 
 <div id="spq-email" class="sc" style="text-align:center;padding:2rem 0;">
-  <div style="font-size:28px;color:rgba(240,236,228,0.5);margin-bottom:1rem;">✦</div>
+  <div style="font-size:28px;color:rgba(240,236,228,0.85);margin-bottom:1rem;">✦</div>
   <h1 style="font-size:20px;margin-bottom:0.75rem;">掃描完成</h1>
   <p>你的靈魂報告已經生成。<br>輸入 Email，立刻解鎖你的完整診斷報告。</p>
   <div class="kit">
@@ -81,9 +83,9 @@
     <div class="rtitle" id="spq-rtitle"></div>
     <div class="steps" id="spq-rsteps"></div>
   </div>
-  <p style="font-size:13px;line-height:1.9;color:rgba(240,236,228,0.6);margin-top:1.5rem;margin-bottom:0.75rem;">不管是哪顆星扣押了你的能量，這段冥想音檔都能幫助你。跟著引導，讓行星的能量重新在你的身體裡流動、平衡。點擊下方連結即可免費索取。</p>
+  <p style="font-size:13px;line-height:1.9;color:rgba(240,236,228,0.9);margin-top:1.5rem;margin-bottom:0.75rem;">不管是哪顆星扣押了你的能量，這段冥想音檔都能幫助你。跟著引導，讓行星的能量重新在你的身體裡流動、平衡。點擊下方連結即可免費索取。</p>
   <a class="meditation-link" id="spq-meditation" href="#" target="_blank">✦ 索取專屬冥想音檔 →</a>
-  <button class="sbtn" onclick="spqReset()" style="background:transparent;color:rgba(240,236,228,0.45);border:0.5px solid rgba(255,255,255,0.2);margin-top:1.5rem;">重新測驗</button>
+  <button class="sbtn" onclick="spqReset()" style="background:transparent;color:rgba(240,236,228,0.8);border:0.5px solid rgba(255,255,255,0.2);margin-top:1.5rem;">重新測驗</button>
 </div>
 </div>
 
